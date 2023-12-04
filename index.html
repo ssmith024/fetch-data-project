@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fetch JSON Data</title>
+</head>
+<body>
+    <button id="fetchData">Fetch Data</button>
+    <div id="displayData"></div>
+
+    <script>
+        document.getElementById('fetchData').addEventListener('click', fetchData);
+
+        function fetchData() {
+            fetch('college_degrees.json')
+            .then(response => {
+                if(!response.ok) {
+                    throw new Error ('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                displayData(data);
+            })
+            .catch(error => {
+                console.error('Fetch Error:', error);
+        });
+    }
+
+    function displayData(data) {
+        const displayDiv = document.getElementById('displayData');
+        displayDiv.innerHTML = ''; //if necessary will clear prev data
+
+        data.degrees.forEach(degree => {
+            const degreeInfo = document.createElement('p');
+            degreeInfo.textContent = `
+            School: ${degree.School}
+            Program/Major: ${degree['Program/Major']}
+            Type: ${degree.Type}
+            Year Conferred: ${degree['Year Conferred']}
+    `;
+    displayDiv.appendChild(degreeInfo);
+        });
+    }
+    </script>
+</body>
+</html>
