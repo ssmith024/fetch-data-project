@@ -1,0 +1,17 @@
+{
+    "degrees": [
+      {
+        "School": "Boston University",
+        "Program/Major": "Computer Information Systems",
+        "Type": "Master of Science",
+        "Year Conferred": "September 2024"
+
+    },
+    {
+        "School": "Cambridge College",
+        "Program/Major": "Psychology",
+        "Type": "Bachelors of Art",
+        "Year Conferred": "June 2021" 
+        }
+    ]
+}
